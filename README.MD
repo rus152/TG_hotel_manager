@@ -37,5 +37,8 @@
 
 <img src="https://i.pinimg.com/originals/8c/21/5b/8c215bbb7b8435fd357efd9ec00ba165.jpg" alt="drawing" width="200"/>
 
+---
 
-[![SVG Banners](https://svg-banners.vercel.app/api?type=glitch&text1=Проблемы:D&width=800&height=200)](https://github.com/Akshay090/svg-banners)
+[![SVG Banners](https://svg-banners.vercel.app/api?type=glitch&text1=Проблемы:D&width=800&height=150)](https://github.com/Akshay090/svg-banners)
+
+#Ничего не готово

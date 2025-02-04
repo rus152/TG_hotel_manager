@@ -1,3 +1,4 @@
-Langchain
+langchain
+langchain_openai
 PyTelegramBotAPI
-dotenv
+python-dotenv

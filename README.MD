@@ -36,5 +36,3 @@
 По идее планирую так, как на практике будет я не знаю :D
 
 <img src="https://i.pinimg.com/originals/8c/21/5b/8c215bbb7b8435fd357efd9ec00ba165.jpg" alt="drawing" width="200"/>
-
-![alt text](https://i.pinimg.com/originals/8c/21/5b/8c215bbb7b8435fd357efd9ec00ba165.jpg)

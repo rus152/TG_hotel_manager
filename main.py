@@ -3,7 +3,8 @@ from langchain_core.messages import HumanMessage, SystemMessage
 import dotenv as dotenv
 import telebot
 import logging
-import sqlite3
+import socket
+
 
 
 def setup_logging(filename: str) -> None:
@@ -21,10 +22,16 @@ def setup_logging(filename: str) -> None:
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 
-def setup():
-    
+def send_test_signal():
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect(('127.0.0.1', 9999))
+    client_socket.send("TEST".encode())
+    response = client_socket.recv(1024).decode()
+    print(f"Received from server: {response}")
+    client_socket.close()
 
 if __name__ == "__main__":
     dotenv.load_dotenv()
     print("Привет!")
+    send_test_signal()
 

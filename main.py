@@ -3,7 +3,8 @@ from langchain_core.messages import HumanMessage, SystemMessage
 import dotenv as dotenv
 import telebot
 import logging
-import socket
+import os
+import sqlite3
 
 
 
@@ -22,16 +23,37 @@ def setup_logging(filename: str) -> None:
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 
-def send_test_signal():
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.connect(('127.0.0.1', 9999))
-    client_socket.send("TEST".encode())
-    response = client_socket.recv(1024).decode()
-    print(f"Received from server: {response}")
-    client_socket.close()
+def sql_headler(comand, return_data=False):
+    conn = sqlite3.connect('hotel.db')
+    c = conn.cursor()
+
+    c.execute(comand)
+    conn.commit()
+    conn.close()
+    pass
+
+def bot_headler():
+    token = os.getenv('TG-TOKEN')
+    bot = telebot.TeleBot(token)
+
+    @bot.message_handler(commands=['start', 'help'])
+    def handle_start_help(message):
+        bot.reply_to(message, "Привет! Тут ни*уя не готово :D")
+
+    @bot.message_handler(content_types=['text'])
+    def handle_message(message):
+        bot.reply_to(message, message.text)
+
+    bot.polling(none_stop=True)
+
 
 if __name__ == "__main__":
     dotenv.load_dotenv()
-    print("Привет!")
-    send_test_signal()
+    bot_headler()
+
+
+
+    
+    
+    
 
